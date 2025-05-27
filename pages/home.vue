@@ -42,7 +42,7 @@ import HeaderTest from '../components/header'
 import FooterTest from '../components/footer'
 
     const menuItems = ["Get the Stars", "Spelled Out", "Form Data"];
-    const activeIndex = ref(1);
+    const activeIndex = ref(2);
 
     const setActive = (index:number) => {
         activeIndex.value = index;
