@@ -37,9 +37,9 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import StarsGenerator from '../components/starsGenerator'
-import HeaderTest from '../components/header'
-import FooterTest from '../components/footer'
+import StarsGenerator from '../components/starsGenerator.vue'
+import HeaderTest from '../components/header.vue'
+import FooterTest from '../components/footer.vue'
 
     const menuItems = ["Get the Stars", "Spelled Out", "Form Data"];
     const activeIndex = ref(0);
@@ -53,16 +53,16 @@ import FooterTest from '../components/footer'
 
 const user = ref(null)
 
-// onMounted(() => {
-//   const userData = localStorage.getItem('user')
-//   if (userData) {
-//     try {
-//       user.value = JSON.parse(userData)
-//     } catch (e) {
-//       console.error('Failed to parse user from localStorage', e)
-//     }
-//   }
-// })
+onMounted(() => {
+  const userData = localStorage.getItem('user')
+  if (userData) {
+    try {
+      user.value = JSON.parse(userData)
+    } catch (e) {
+      console.error('Failed to parse user from localStorage', e)
+    }
+  }
+})
 
 </script>
 
