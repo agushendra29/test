@@ -1,6 +1,5 @@
-import { defineEventHandler, readBody, setResponseStatus } from 'h3'
-import { readFile } from 'fs/promises'
-import { join } from 'path'
+// server/api/login.post.ts
+import { readBody, setResponseStatus } from 'h3'
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
@@ -11,12 +10,13 @@ export default defineEventHandler(async (event) => {
     return { message: 'Email and password are required' }
   }
 
-  try {
-    const filePath = join(process.cwd(), 'server/data/users.json')
-    const file = await readFile(filePath, 'utf-8')
-    const users = JSON.parse(file)
+  const storage = useStorage('data')
 
-    const user = users.find((u: any) => u.email === email && u.password === password)
+  try {
+    const storedUsers = await storage.getItem('users.json')
+    const users: any[] = Array.isArray(storedUsers) ? storedUsers : []
+
+    const user = users.find((u) => u.email === email && u.password === password)
 
     if (!user) {
       setResponseStatus(event, 401)
