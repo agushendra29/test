@@ -1,21 +1,21 @@
+// server/api/register.post.ts
 import { readBody } from 'h3'
-import fs from 'fs/promises'
-import path from 'path'
-
-const dbPath = path.resolve('server/data/users.json')
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
+  const storage = useStorage('data') // Menggunakan penyimpanan 'data'
 
-  // Read existing users
-  const raw = await fs.readFile(dbPath, 'utf-8')
-  const users = JSON.parse(raw)
+  // Baca data pengguna yang ada
+  const storedUsers = await storage.getItem('users.json')
 
-  // Add new user
+  // Periksa apakah storedUsers adalah array
+  const users: any[] = Array.isArray(storedUsers) ? storedUsers : []
+
+  // Tambahkan pengguna baru
   users.push(body)
 
-  // Save back to file
-  await fs.writeFile(dbPath, JSON.stringify(users, null, 2), 'utf-8')
+  // Simpan kembali ke penyimpanan
+  await storage.setItem('users.json', users)
 
   return {
     status: 'success',

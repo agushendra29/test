@@ -9,4 +9,12 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+   nitro: {
+    storage: {
+      data: {
+        driver: 'fs',
+        base: './data'
+      }
+    }
+  }
 })
