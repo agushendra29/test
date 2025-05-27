@@ -1,9 +1,3 @@
-# Nuxt Minimal Starter
-
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-## Setup
-
 Make sure to install dependencies:
 
 ```bash
@@ -28,48 +22,21 @@ Start the development server on `http://localhost:3000`:
 # npm
 npm run dev
 
-# pnpm
-pnpm dev
 
-# yarn
-yarn dev
+## Notes =========== 
 
-# bun
-bun run dev
-```
+register.post.ts dan login.post.ts dalam menyimpan data hanya tersimpan ke directory data/users.json sebagai mock DB
+sehingga kondisi setelah deployment vercel yang serverless maka write file tidak bisa dilakukan
 
-## Production
+1. Login pada vercel bisa menggunakan email: agushendra29@gmail.com dan password: 789789
 
-Build the application for production:
+2. Register tidak dapat dilakukan pada vercel sehingga hanya akan muncul alert register successfull jika semua form diisi 
 
-```bash
-# npm
-npm run build
+3. login.post.ts dan register.post.ts hanya berhasil dilakukan pada localhost saja 
 
-# pnpm
-pnpm build
 
-# yarn
-yarn build
+Terima kasih dan mohon maaf pada aplikasi yang serba kekurangan
 
-# bun
-bun run build
-```
 
-Locally preview production build:
+=============================================================================================================
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
