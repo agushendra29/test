@@ -9,11 +9,11 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-onMounted(() => {
-  const user = localStorage.getItem('user')
-  if (user) {
-    router.push('/') // Redirect to home page
-  } else router.push('/login')
-})
+// onMounted(() => {
+//   const user = localStorage.getItem('user')
+//   if (user) {
+//     router.push('/') // Redirect to home page
+//   } else router.push('/login')
+// })
 
 </script>

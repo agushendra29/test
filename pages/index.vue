@@ -53,16 +53,16 @@ import FooterTest from '../components/footer'
 
 const user = ref(null)
 
-onMounted(() => {
-  const userData = localStorage.getItem('user')
-  if (userData) {
-    try {
-      user.value = JSON.parse(userData)
-    } catch (e) {
-      console.error('Failed to parse user from localStorage', e)
-    }
-  }
-})
+// onMounted(() => {
+//   const userData = localStorage.getItem('user')
+//   if (userData) {
+//     try {
+//       user.value = JSON.parse(userData)
+//     } catch (e) {
+//       console.error('Failed to parse user from localStorage', e)
+//     }
+//   }
+// })
 
 </script>
 
